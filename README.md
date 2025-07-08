@@ -1,22 +1,36 @@
 # Overview
 
-**This is a Frontend Task by Bitespeed.**
+BiteSpeed Frontend Task: Chatbot flow builder
 
-This project aims to create a simple and extensible Chatbot Flow Builder using React. The builder will allow users to design chatbot flows by connecting multiple messages together to determine their order of execution.
-
-Website is hosted at [bitespeed-frontend-task-sobhanbera.vercel.app](https://bitespeed-frontend-task-sobhanbera.vercel.app)
+Website is hosted at [https://bite-speed-frontend-task-chatbot-fl.vercel.app/](https://bite-speed-frontend-task-chatbot-fl.vercel.app/)
 
 ## Features
 
-- **Message Nodes:** Define individual messages as nodes in the chatbot flow.
-- **Connectors:** Link messages to dictate the sequence in which they appear.
-- **Drag and Drop:** Easily arrange and connect messages using a drag-and-drop interface.
-- **Extensibility:** Designed to easily add new features and functionalities as needed.
+1. **Text Node** 
+    1. Our flow builder currently supports only one type of message (i.e Text Message).
+    2. There can be multiple Text Nodes in one flow.
+    3. Nodes are added to the flow by dragging and dropping a Node from the Nodes Panel.
+2. **Nodes Panel** 
+    1. This panel houses all kind of Nodes that our Flow Builder supports.
+    2. Right now there is only Message Node, but we’d be adding more types of Nodes in the future so make this section extensible 
+3. **Edge**
+    1. Connects two Nodes together
+4. **Source Handle**
+    1. Source of a connecting edge 
+    2. Can only have **one edge** originating from a source handle
+5. **Target Handle** 
+    1. Target of a connecting edge
+    2. Can have **more than one edge** connecting to a target handle 
+6. **Settings Panel**
+    1. Settings Panel will replace the Nodes Panel when a Node is selected
+    2. It has a text field to edit text of the selected Text Node
+7. **Save Button**
+    1. Button to save the flow 
+    2. **Save button press will show an error if there are more than one Nodes and more than one Node has empty target handles**
 
 ## Prerequisites
 
-1. Node.js and npm installed on your machine.
-2. Basic understanding of React.
+    Node.js and Npm.
 
 ## Getting Started
 
@@ -24,29 +38,12 @@ First, run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-## Usage
-
-- **Add a Message Node:** Drag and drop the Message Node from sidebar, to create a new message node.
-- **Edit Message:** Click on a message node to edit its content.
-- **Connect Messages:** Drag from the connector point on one message to another to create a link. (Source -> Target)
-- **Save Flow:** Once your flow is complete, click on the "Save" button to save your flow configuration.
+Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
 
 
-https://github.com/sobhanbera/bitespeed-frontend-task/assets/50291544/00e4b587-2339-4299-b026-f6c4f66121b1
-
-![](.github/src/screenshot.png)
-
-### Directory Structure
+### Project Structure
 
 ```bash
 src
@@ -69,16 +66,3 @@ src
     └── nodes                   # Custom nodes
         └── TextMessageNode.js
 ```
-
-## Extensibility
-
-The project is designed with extensibility in mind. Here are a few ways you can extend the functionality:
-
-- New Node Types: Add different types of nodes (e.g., decision nodes, image node, file node, etc). This can be done by creating a new component in [`components/nodes`](./src/components/nodes/) folder.
-
-- Create custom editor: Add custom image editor, file input, etc. This can be done by creating a new component in [`components/editors`](./src/components/editors/) folder.
-
-## Refrences
-
-- [React Flow Documentation](https://reactflow.dev/docs)
-- [Notion Page](https://bitespeed.notion.site/BiteSpeed-Frontend-Task-Chatbot-flow-builder-fb0feb3498294929a9b7171bcb4e8a8b)
